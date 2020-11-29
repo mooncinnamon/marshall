@@ -1,0 +1,50 @@
+{
+  "name": "marshall",
+  "version": "1.0.0",
+  "description": "",
+  "main": "electron/index.js",
+  "dependencies": {
+    "@testing-library/jest-dom": "^5.11.6",
+    "@testing-library/react": "^11.2.2",
+    "@testing-library/user-event": "^12.2.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-scripts": "^4.0.1",
+    "web-vitals": "^1.0.1"
+  },
+  "devDependencies": {
+    "electron": "^11.0.3",
+    "foreman": "^3.0.1"
+  },
+  "scripts": {
+    "react-start": "react-scripts start",
+    "react-build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "electron": "electron .",
+    "start": "nf start",
+    "dist": "yarn run react-build && electron-builder ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mooncinnamon/marshall.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mooncinnamon/marshall/issues"
+  },
+  "homepage": "./",
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
