@@ -20,10 +20,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a32f07c3-bc12-462a-ab37-fad95f8dede3" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/electron/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/electron/react-bridge.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/electron/twitter/auth.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/electron/twitter/credential.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/electron/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/electron/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +61,7 @@
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/electron" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager" selected="npm.start">
@@ -95,7 +100,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606620574844</updated>
-      <workItem from="1606620575915" duration="3863000" />
+      <workItem from="1606620575915" duration="9562000" />
     </task>
     <servers />
   </component>
@@ -114,25 +119,33 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1556" y="530" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606625989377">
+    <state x="-1556" y="530" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606638246177">
       <screen x="-2560" y="0" width="2560" height="1440" />
     </state>
-    <state x="-1556" y="530" key="#com.intellij.fileTypes.FileTypeChooser/-2560.0.2560.1440/0.0.1792.1120@-2560.0.2560.1440" timestamp="1606625989377" />
-    <state width="2539" height="424" key="GridCell.Tab.0.bottom" timestamp="1606627422566">
+    <state x="-1556" y="530" key="#com.intellij.fileTypes.FileTypeChooser/-2560.0.2560.1440/0.0.1792.1120@-2560.0.2560.1440" timestamp="1606638246177" />
+    <state x="-1542" y="647" key="GitCloneDialog" timestamp="1606645883331">
+      <screen x="-2560" y="23" width="2560" height="1417" />
+    </state>
+    <state x="-1542" y="647" key="GitCloneDialog/-2560.23.2560.1417/0.23.1792.1097@-2560.23.2560.1417" timestamp="1606645883331" />
+    <state width="2539" height="424" key="GridCell.Tab.0.bottom" timestamp="1606682663578">
       <screen x="-2560" y="0" width="2560" height="1440" />
     </state>
-    <state width="2539" height="424" key="GridCell.Tab.0.bottom/-2560.0.2560.1440/0.0.1792.1120@-2560.0.2560.1440" timestamp="1606627422566" />
-    <state width="2539" height="424" key="GridCell.Tab.0.center" timestamp="1606627422552">
+    <state width="2539" height="424" key="GridCell.Tab.0.bottom/-2560.0.2560.1440/0.0.1792.1120@-2560.0.2560.1440" timestamp="1606682663578" />
+    <state width="2539" height="424" key="GridCell.Tab.0.center" timestamp="1606682663575">
       <screen x="-2560" y="0" width="2560" height="1440" />
     </state>
-    <state width="2539" height="424" key="GridCell.Tab.0.center/-2560.0.2560.1440/0.0.1792.1120@-2560.0.2560.1440" timestamp="1606627422552" />
-    <state width="2539" height="424" key="GridCell.Tab.0.left" timestamp="1606627422552">
+    <state width="2539" height="424" key="GridCell.Tab.0.center/-2560.0.2560.1440/0.0.1792.1120@-2560.0.2560.1440" timestamp="1606682663575" />
+    <state width="2539" height="424" key="GridCell.Tab.0.left" timestamp="1606682663566">
       <screen x="-2560" y="0" width="2560" height="1440" />
     </state>
-    <state width="2539" height="424" key="GridCell.Tab.0.left/-2560.0.2560.1440/0.0.1792.1120@-2560.0.2560.1440" timestamp="1606627422552" />
-    <state width="2539" height="424" key="GridCell.Tab.0.right" timestamp="1606627422562">
+    <state width="2539" height="424" key="GridCell.Tab.0.left/-2560.0.2560.1440/0.0.1792.1120@-2560.0.2560.1440" timestamp="1606682663566" />
+    <state width="2539" height="424" key="GridCell.Tab.0.right" timestamp="1606682663575">
       <screen x="-2560" y="0" width="2560" height="1440" />
     </state>
-    <state width="2539" height="424" key="GridCell.Tab.0.right/-2560.0.2560.1440/0.0.1792.1120@-2560.0.2560.1440" timestamp="1606627422562" />
+    <state width="2539" height="424" key="GridCell.Tab.0.right/-2560.0.2560.1440/0.0.1792.1120@-2560.0.2560.1440" timestamp="1606682663575" />
+    <state x="-1615" y="331" width="670" height="676" key="search.everywhere.popup" timestamp="1606681359889">
+      <screen x="-2560" y="0" width="2560" height="1440" />
+    </state>
+    <state x="-1615" y="331" width="670" height="676" key="search.everywhere.popup/-2560.0.2560.1440/0.0.1792.1120@-2560.0.2560.1440" timestamp="1606681359889" />
   </component>
 </project>
