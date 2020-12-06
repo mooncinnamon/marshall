@@ -41,6 +41,6 @@ psd
 thumb
 sketch
 
-.env
+electron/env.js
 
 # End of https://www.toptal.com/developers/gitignore/api/react

@@ -1,12 +1,47 @@
-const {app, BrowserWindow} = require('electron')
-const storage = require('electron-json-storage-sync')
+const {app, dialog, BrowserWindow} = require('electron')
 const url = require('url')
 const path = require('path')
 
-const auth = require('oauth-electron-twitter')
 import Store from 'electron-store'
+import {startLogin, getAccessToken} from "./twitter/auth";
+import {key, secret} from "./env";
+
+import log from "electron-log";
+
 
 const store = new Store();
+
+app.once('ready', () => {
+    const window = new BrowserWindow({width: 800, height: 600});
+
+    const twitCredentials = store.get('TwitterUserCredentials');
+    log.info('twitCredentials', twitCredentials);
+
+    if (twitCredentials === null || twitCredentials === 'null') {
+        startLogin(window, {
+            key: key,
+            secret: secret,
+        }).then(result => {
+            const {oauth, oauthToken, oauthTokenSecret} = result;
+            const url = `https://api.twitter.com/oauth/authenticate?force_login=true;oauth_token=${oauthToken}`;
+            return getAccessToken(window, {
+                oauth: oauth,
+                oauthToken: oauthToken,
+                oauthTokenSecret: oauthTokenSecret
+            }, url);
+        }).then(result => {
+            const accessToken = result.oauth_access_token;
+            const accessTokenSecret = result.oauth_access_token_secret;
+            dialog.showErrorBox(
+                'Status',
+                `Token: ${accessToken} \nSecret: ${accessTokenSecret}`,
+            );
+            store.set('TwitterUserCredentials', {accessToken: accessToken, accessTokenSecret: accessTokenSecret})
+            return {accessToken: accessToken, accessTokenSecret: accessTokenSecret}
+        })
+    }
+    return twitCredentials
+})
 
 const createWindow = () => {
     const mainWindow = new BrowserWindow({
@@ -23,26 +58,13 @@ const createWindow = () => {
         slashes: true
     });
     mainWindow.loadURL(startUrl);
-
-
     mainWindow.webContents.openDevTools()
-
-    const key = 'wVnEYOs6iGvx77lxYs7n5omi8';
-    const secretkey = 'INRQuoOKBN5Oqu4GfbbzDSFeSD8FDf6pb2ggtYHbyAAo8aAkvy';
 
     const info = {
         key: key,
         secret: secretkey
     }
     const window = new BrowserWindow({webPreferences: {nodeIntegration: false}});
-    window.webContents.openDevTools()
-    auth.login(info, window).then((r) => {
-        store.set('TwitterToken', r)
-        console.log('sdf', 'twit', r)
-        window.close();
-    }).catch((err) => {
-        mainWindow.webContents.send("error", err, "twitter");
-    })
 }
 
 app.whenReady().then(createWindow)
