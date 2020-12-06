@@ -4,9 +4,12 @@ const url = require('url')
 const path = require('path')
 
 const auth = require('oauth-electron-twitter')
+import Store from 'electron-store'
+
+const store = new Store();
 
 const createWindow = () => {
-    const win = new BrowserWindow({
+    const mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
         webPreferences: {
@@ -19,21 +22,27 @@ const createWindow = () => {
         protocol: 'file:',
         slashes: true
     });
-    win.loadURL(startUrl);
+    mainWindow.loadURL(startUrl);
 
 
-    win.webContents.openDevTools()
+    mainWindow.webContents.openDevTools()
 
     const key = 'wVnEYOs6iGvx77lxYs7n5omi8';
-    const secretkey =  'INRQuoOKBN5Oqu4GfbbzDSFeSD8FDf6pb2ggtYHbyAAo8aAkvy';
+    const secretkey = 'INRQuoOKBN5Oqu4GfbbzDSFeSD8FDf6pb2ggtYHbyAAo8aAkvy';
 
     const info = {
         key: key,
         secret: secretkey
     }
     const window = new BrowserWindow({webPreferences: {nodeIntegration: false}});
-    auth.login(info, window)
-
+    window.webContents.openDevTools()
+    auth.login(info, window).then((r) => {
+        store.set('TwitterToken', r)
+        console.log('sdf', 'twit', r)
+        window.close();
+    }).catch((err) => {
+        mainWindow.webContents.send("error", err, "twitter");
+    })
 }
 
 app.whenReady().then(createWindow)
